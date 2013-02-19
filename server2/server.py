@@ -43,6 +43,21 @@ def get_photos():
                     status=200,
                     mimetype="application/json")
 
+@app.route("/cors", methods=['GET'])
+def cors_photos_options():
+  logging.info("---------- Get Photos Endpoint: /cors -----------")
+  json_data = json.dumps(BEACH_PHOTOS)
+  resp = Response(response=json_data, status=200, mimetype="application/json")
+  #resp.headers['Access-Control-Allow-Origin'] = '*'
+  #resp.headers['Access-Conrtol-Allow-Methods'] = "GET,OPTIONS"
+  return resp
+
+@app.route("/photos/delete")
+def delete_account():
+  photo_id = request.args.get('photoid', '0')
+  logging.info("DELETING PHOTO NUMBER: %s!" % photo_id)
+  return Response(response="OK", status=200, mimetype="text/plain")
+
 if __name__ == "__main__":
   app.debug = True
   app.run(port=9999)

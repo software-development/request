@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <script>console.log("Script 1");</script>
+    <script src="/static/jquery.js"></script>
+    <script>console.log("Script 2");</script>
+    <script>
+    $(function() {
+      console.log("Script 3");
+    });
+  </script>
+  <script>console.log("Script 4");</script>
+  <script>
+    (function() {
+      console.log("Script 5");
+    })();
+  </script>
+  <script src="/static/script6.js"></script>
+  </head>
+  <body onload="console.log('Onload');">
+    <script src="/static/script7.js"></script>
+    <script>console.log("Script 8");</script>
+  </body>
+</html>
